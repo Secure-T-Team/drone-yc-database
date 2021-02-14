@@ -2,3 +2,4 @@ node_modules
 dist
 coverage
 private.pem
+env.js

@@ -1,4 +1,4 @@
-const { exec } = require('child_process')
+const exec = require('shelljs.exec')
 const Config = require('./config')
 
 // TODO tests
@@ -10,14 +10,15 @@ class DB {
 
 	backup() {
 		const command = [
+			`PGPASSWORD="${this.config.db.password}"`,
 			`pg_dump`,
 			`-h ${this.config.db.host}`,
 			`-p ${this.config.db.port}`,
 			`-U ${this.config.db.user}`,
-			`-W ${this.config.db.password}`,
-			`-F c -b -v`,
+			`-F c`,
+			`-b -v`,
 			`-f "${this.file}"`,
-			`${this.config.db.restore_db_name}`,
+			`-d ${this.config.db.restore_db_name}`,
 		].join(' ')
 		console.log('start backup...')
 		exec(command, { stdio: 'inherit' })
@@ -26,11 +27,11 @@ class DB {
 
 	restore() {
 		const command = [
+			`PGPASSWORD="${this.config.db.password}"`,
 			`pg_restore`,
 			`-h ${this.config.db.host}`,
 			`-p ${this.config.db.port}`,
 			`-U ${this.config.db.user}`,
-			`-W ${this.config.db.password}`,
 			`-d ${this.config.db.name}`,
 			`-v "${this.file}"`,
 		].join(' ')

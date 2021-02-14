@@ -28,6 +28,23 @@ class YC {
 		return iamToken
 	}
 
+	async getDB(db_name) {
+		const url = `https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/${this.config.db.clusterId}/databases/${db_name}`
+		try {
+			const res = await (await this.api.get(url)).data
+			if (res.name) {
+				console.log(`db ${res.name} already exists`)
+				return res
+			}
+			return null
+		} catch (err) {
+			if (err.response.status === 404) {
+				return null
+			}
+			throw JSON.stringify(err.response.data, null, 4)
+		}
+	}
+
 	async createDB(db_name) {
 		const url = `https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/${this.config.db.clusterId}/databases`
 		const data = {

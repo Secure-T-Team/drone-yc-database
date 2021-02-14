@@ -10,12 +10,14 @@ async function main() {
 
 	await yc.login()
 
-	await yc.createDB(config.db.name)
+	const database = await yc.getDB(config.db.name)
 
-	await db.backup()
-	await db.restore()
-
-	console.log('db created and restored!')
+	if (!database) {
+		await yc.createDB(config.db.name)
+		await db.backup()
+		await db.restore()
+		console.log('db created and restored!')
+	}
 }
 
 main()
