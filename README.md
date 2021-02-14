@@ -7,8 +7,8 @@ example drone step:
   image: bibasoft/drone-yc-database
   settings:
     yc_api_key: 'yc_api_key'
-	  yc_service_account_id: 'yc_service_account_id'
-	  yc_key_id: 'yc_key_id'
+    yc_service_account_id: 'yc_service_account_id'
+    yc_key_id: 'yc_key_id'
     db_cluster_id: 'cluster-id'
     db_user: 'postgres'
     db_host: 'host'
