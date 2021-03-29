@@ -17,6 +17,7 @@ class DB {
 			`-U ${this.config.db.user}`,
 			`-F c`,
 			`-b -v`,
+			`-O`,
 			`-f "${this.file}"`,
 			`-d ${this.config.db.restore_db_name}`,
 		].join(' ')
@@ -30,6 +31,7 @@ class DB {
 			`PGPASSWORD="${this.config.db.password}"`,
 			`pg_restore`,
 			`-h ${this.config.db.host}`,
+			`-O`,
 			`-p ${this.config.db.port}`,
 			`-U ${this.config.db.user}`,
 			`-d ${this.config.db.name}`,
