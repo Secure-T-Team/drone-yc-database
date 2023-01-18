@@ -13,6 +13,7 @@ async function main() {
 
 	const database = await yc.getDB(config.db.name)
     const test_database = database.concat('-test')
+    console.log(test_database)
 
 	if (!database) {
 		await yc.createDB(config.db.name)
