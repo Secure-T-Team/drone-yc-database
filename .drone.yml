@@ -11,16 +11,11 @@ steps:
       - npm run test
 
   - name: publish
-    image: plugins/docker:18
+    image: plugins/docker
     settings:
-      auto_tag: true
-      dockerfile: Dockerfile
-      repo: bibasoft/drone-yc-database
+      tags: latest
+      repo: securetdrone/drone-yc-database
       username:
-        from_secret: docker_username
+        from_secret: dockerhub_login
       password:
-        from_secret: docker_password
-    when:
-      event:
-        - push
-        - tag
+        from_secret: dockerhub_password
