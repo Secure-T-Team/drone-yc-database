@@ -10,6 +10,8 @@ async function main() {
     const db = new DB()
     const database_name = config.db.name
 
+    console.log("CREATE DATABASE FOR TEST -> ", database_name.concat('-test'))
+
     await yc.login()
 
     if (Boolean(config.is_test_db)) {
