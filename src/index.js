@@ -1,6 +1,7 @@
 const YC = require('./yc/api')
 const DB = require('./db')
 const Config = require('./config')
+const test_str = '-test'
 
 async function main() {
 	const config = new Config()
@@ -11,11 +12,12 @@ async function main() {
 	await yc.login()
 
 	const database = await yc.getDB(config.db.name)
+    const test_database = database.concat('-test')
 
 	if (!database) {
 		await yc.createDB(config.db.name)
-		await db.backup()
-		await db.restore()
+		db.backup()
+		db.restore()
 		console.log('db created and restored!')
 	}
 }
