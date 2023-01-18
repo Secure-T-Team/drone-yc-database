@@ -14,6 +14,7 @@ class Config {
 			PLUGIN_DB_PORT = 5432,
 			PLUGIN_DB_PASSWORD,
 			PLUGIN_RESTORE_DB_NAME,
+            PLUGIN_IS_TEST_DB,
 		} = process.env
 
 		this.yc = {
@@ -34,6 +35,7 @@ class Config {
 			port: PLUGIN_DB_PORT,
 			password: PLUGIN_DB_PASSWORD,
 			restore_db_name: PLUGIN_RESTORE_DB_NAME,
+            is_test_db: PLUGIN_IS_TEST_DB,
 		}
 	}
 }
