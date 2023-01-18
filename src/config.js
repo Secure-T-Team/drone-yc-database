@@ -16,6 +16,8 @@ class Config {
             PLUGIN_RESTORE_DB_NAME,
             PLUGIN_IS_TEST_DB
         } = process.env
+        console.log("ENV: \n", process.env)
+        console.log("PLUGIN_IS_TEST_DB: \n", process.env.PLUGIN_IS_TEST_DB)
 
         this.yc = {
             apiKey: PLUGIN_YC_API_KEY,
