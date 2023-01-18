@@ -10,11 +10,10 @@ async function main() {
     const db = new DB()
     const database_name = config.db.name
 
-    console.log('is_test_db: ', config.is_test_db)
 
     await yc.login()
 
-    if (Boolean(config.is_test_db)) {
+    if (Boolean(process.env.IS_TEST_DB)) {
         console.log("CREATE DATABASE FOR TEST -> ", database_name.concat('-test'))
         const test_database_name = database_name.concat('-test')
         console.log(test_database)
@@ -22,6 +21,7 @@ async function main() {
     }
 
     else {
+        console.log('CREATE DATABASE FOR BRANCH -> ', database_name)
         const database = await yc.getDB(database_name)
         if (!database) {
             await yc.createDB(config.db.name)
