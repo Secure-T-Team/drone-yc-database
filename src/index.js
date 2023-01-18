@@ -4,13 +4,13 @@ const Config = require('./config')
 const test_str = '-test'
 
 async function main() {
-	const config = new Config()
+    const config = new Config()
 
-	const yc = new YC()
-	const db = new DB()
+    const yc = new YC()
+    const db = new DB()
     const database_name = config.db.name
 
-	await yc.login()
+    await yc.login()
 
     if (Boolean(config.is_test_db)) {
         const test_database_name = database_name.concat('-test')
