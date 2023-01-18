@@ -17,6 +17,8 @@ class Config {
             PLUGIN_IS_TEST_DB,
         } = process.env
 
+        console.log(process.env)
+
         this.yc = {
             apiKey: PLUGIN_YC_API_KEY,
             serviceAccountId: PLUGIN_YC_SERVICE_ACCOUNT_ID,
