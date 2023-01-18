@@ -14,10 +14,8 @@ class Config {
             PLUGIN_DB_PORT = 5432,
             PLUGIN_DB_PASSWORD,
             PLUGIN_RESTORE_DB_NAME,
-            PLUGIN_IS_TEST_DB,
+            PLUGIN_IS_TEST_DB
         } = process.env
-
-        console.log(process.env)
 
         this.yc = {
             apiKey: PLUGIN_YC_API_KEY,
