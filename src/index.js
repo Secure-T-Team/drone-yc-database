@@ -12,8 +12,9 @@ async function main() {
 
 
     await yc.login()
+    console.log()
 
-    if (config.db.restore_db_name) {
+    if (!config.db.restore_db_name) {
         console.log("CREATE DATABASE FOR TEST -> ", database_name.concat('-test'))
         const test_database_name = database_name.concat('-test')
         console.log(test_database)
