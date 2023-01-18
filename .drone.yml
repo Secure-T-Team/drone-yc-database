@@ -15,7 +15,7 @@ steps:
     settings:
       auto_tag: true
       dockerfile: Dockerfile
-      repo: bibasoft/drone-yc-database
+      repo: secure-t/drone-yc-database
       username:
         from_secret: docker_username
       password:
