@@ -15,7 +15,7 @@ async function main() {
     console.log()
 
     if (!config.db.restore_db_name) {
-        const test_database = await yc.getDB(database_name)
+        const test_database = await yc.getDB(database_name.concat('-test'))
         if (!test_database) {
             console.log("CREATE DATABASE FOR TEST -> ", database_name.concat('-test'))
             const test_database_name = database_name.concat('-test')
